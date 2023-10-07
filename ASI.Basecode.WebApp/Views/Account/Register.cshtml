@@ -1,0 +1,70 @@
+﻿@using ASI.Basecode.Services.ServiceModels
+@model UserViewModel
+@{
+    ViewBag.LoginView = true;
+    ViewData["Title"] = "Register Page";
+}
+@section styles {
+    <link rel="stylesheet" href="~/css/login.css" />
+}
+<div class="container py-5 h-100 register-box">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+            <div class="card rounded-3 text-black">
+                <div class="row g-0">
+                    <div class="card-body p-md-5 mx-md-4">
+
+                        <div class="text-center">
+                            <img src="https://www.alliance.com.ph/images/asi-logo-invert.svg"
+                                 style="width: 185px;" alt="logo">
+                        </div>
+
+                        <form method="post" action="/Account/Register">
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="userId">UserId</label>
+                                <input type="text" id="userId" class="form-control"
+                                       asp-for="UserId" placeholder="Enter userid" />
+                                <span asp-validation-for="UserId" class="text-danger"></span>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="name">Name</label>
+                                <input type="text" id="name" class="form-control"
+                                       asp-for="Name" placeholder="Enter name" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" id="password" class="form-control"
+                                       asp-for="Password" placeholder="Enter password" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="confirmpassword">Confirm Password</label>
+                                <input type="password" id="confirmpassword" class="form-control" 
+                                       asp-for="ConfirmPassword" placeholder="Confirm Password" />
+                                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <div class="text-center pt-1 mb-5 pb-1 d-flex flex-column align-items-center">
+                                <button class="btn btn-primary btn-block login-btn gradient-custom-2 mb-3" type="submit">
+                                    Register
+                                </button>
+                                <a asp-controller="Account" asp-action="Login">
+                                    &#8592 Back
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script>
+        // Check for error message and display Toastr notification
+        var errorMessage = '@TempData["ErrorMessage"]';
+        if (errorMessage) {
+            toastr.error(errorMessage);
+        }
+    </script>
+}

@@ -1,0 +1,87 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+}
+
+#footer {
+    height: 160px;
+    margin-left: 0px;
+    transition: margin-left 0.2s;
+}
+
+.wrapper {
+    min-height: 100vh;
+    position: relative;
+    height: auto
+}
+
+.hide-navbar {
+    display: none;
+}
+
+
+/* Initially hide the dropdown */
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 30px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+    /* Style the dropdown list */
+    .dropdown ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+        .dropdown ul li {
+            padding: 10px;
+        }
+
+            /* Style the links in the dropdown */
+            .dropdown ul li a {
+                text-decoration: none;
+                color: #333;
+            }
+
+.dropdown-open {
+    display: block;
+    width: 140px
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.w-1000px {
+    width: 1000px;
+}
