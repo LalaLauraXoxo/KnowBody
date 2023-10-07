@@ -6,11 +6,13 @@
              style="width: 185px;" alt="logo"
              onclick="window.location.href = '@Url.Action("Index", "Home")';">
     </div>
+
     <a asp-action="Jacalan" asp-controller="Demo">Jacalan</a>
-    <a asp-action="Jacalan" asp-controller="Demo">Espinosa</a>
-    <a asp-action="Jacalan" asp-controller="Demo">Serna</a>
-    <a asp-action="Jacalan" asp-controller="Demo">Villanueva</a>
-    <a asp-action="Jacalan" asp-controller="Demo">Ytang</a>
+    <a asp-action="Index" asp-controller="Emmanuel">Click for iPhone 16 Pro Max</a>
+    <a asp-action="Index" asp-controller="Practice">Xymer Serna</a>
+    <a asp-action="HomePage" asp-controller="Homepage">HOMEPAGE</a>
+    <a asp-action="Ville" asp-controller="Dump">Lorem</a>
+
 
     <div class="logosec">
         @HttpContextAccessor.HttpContext.Session.GetString("UserName")
