@@ -1,0 +1,23 @@
+﻿@model ASI.Basecode.Services.ServiceModels.BooksViewModel
+
+<div class="pt-5">
+
+    <h1>Create Book</h1>
+
+    <form method="post" asp-action="Create">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" asp-for="Title">
+        </div>
+        <div class="form-group">
+            <label>Author</label>
+            <input type="text" class="form-control" asp-for="Author">
+        </div>
+        <div class="form-group">
+            <label>Descrption</label>
+            <textarea class="form-control" rows="3" asp-for="Description"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</div>

@@ -8,6 +8,10 @@
     </div>
     <a asp-action="HomePage" asp-controller="Homepage">HOMEPAGE</a>
 
+    <a asp-action="Index" asp-controller="Books">BOOKS</a>
+    <a asp-action="Create" asp-controller="Books">ADD BOOKS</a>
+
+
     <div class="logosec">
         @HttpContextAccessor.HttpContext.Session.GetString("UserName")
         <div class="mr-20 hover-pointer" style="position: relative">

@@ -1,0 +1,31 @@
+﻿@model List<ASI.Basecode.Data.Models.Book>
+
+<div class="container pt-5">
+    <div class="row">
+        @foreach (var book in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-text font-weight-bold">@book.Title</h4>
+                        <p class="card-text"><b>@book.Description</b></p>
+                        <p class="card-text">By <b>@book.Author</b></p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <form asp-controller="Book" asp-action="Edit" method="get">
+                                    <input type="hidden" name="id" value="@book.Id" />
+                                    <button type="submit" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                </form>
+                                <form asp-controller="Book" asp-action="Delete" method="post">
+                                    <input type="hidden" name="id" value="@book.Id" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                                </form>
+                            </div>
+                            <small class="text-muted">@book.CreatedDate.ToString("dd/MM/yyyy")</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

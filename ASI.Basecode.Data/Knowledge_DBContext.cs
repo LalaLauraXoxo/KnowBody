@@ -6,23 +6,58 @@ using ASI.Basecode.Data.Models;
 
 namespace ASI.Basecode.Data
 {
-    public partial class AsiBasecodeDBContext : DbContext
+    public partial class Knowledge_DBContext : DbContext
     {
-        public AsiBasecodeDBContext()
+        public Knowledge_DBContext()
         {
         }
 
-        public AsiBasecodeDBContext(DbContextOptions<AsiBasecodeDBContext> options)
+        public Knowledge_DBContext(DbContextOptions<Knowledge_DBContext> options)
             : base(options)
         {
         }
 
+        public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<User> Users { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Addr=CCSLAB526U28; database=Knowledge_DB; Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=True");
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Book>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Author)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CreatedBy)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Description)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.UpdatedBy)
+                    .IsRequired()
+                    .HasMaxLength(50);
+            });
+
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasIndex(e => e.UserId, "UQ__Users__1788CC4D5F4A160F")
+                entity.HasIndex(e => e.UserId, "UQ__Users__1788CC4DE2E49346")
                     .IsUnique();
 
                 entity.Property(e => e.CreatedBy)
